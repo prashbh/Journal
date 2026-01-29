@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wide Hybrid Desktop Blog - Tactile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#9f1239", // Maroon/Red
+                    "accent": "#0ea5e9", // Sky Blue
+                    "accent-purple": "#8b5cf6", // Purple
+                    "accent-amber": "#f59e0b", // Amber
+                    "background-light": "#f8fafc",
+                    "background-dark": "#0f172a",
+                    "surface-highlight": "#fff1f2", // Light red/pink
+                    "surface-card": "#ffffff"
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {
+                    "clay": "1.5rem",
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "2xl": "2rem",
+                    "full": "9999px"
+                },
+                boxShadow: {
+                    'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    'clay': '10px 10px 30px rgba(0,0,0,0.05), -10px -10px 30px rgba(255,255,255,0.8)'
+                }
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    @layer base {
+        body {
+            @apply font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 antialiased;
+        }
+    }
+    .glass-header {
+        @apply sticky top-4 mx-auto max-w-7xl z-[60] backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border border-slate-200/50 dark:border-slate-800 shadow-sm rounded-full px-6 py-3 flex items-center justify-between transition-all;
+    }
+    .toc-item.active {
+        @apply border-l-4 border-primary text-primary pl-3 font-bold;
+    }
+    .toc-item {
+        @apply border-l-4 border-transparent pl-3 text-slate-500 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer block py-1;
+    }
+    .clay-mascot {
+        box-shadow: 20px 20px 60px #cbd5e1, -20px -20px 60px #ffffff;
+    }
+    .dark .clay-mascot {
+        box-shadow: 10px 10px 30px #020617, -5px -5px 20px #1e293b;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="relative min-h-screen flex flex-col">
+<header class="pt-6 px-4 mb-12">
+<nav class="glass-header">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-black italic shadow-lg shadow-primary/30">T</div>
+<span class="font-black tracking-tight text-xl text-slate-900 dark:text-white">TACTILE</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Design</a>
+<a class="hover:text-primary transition-colors" href="#">Engineering</a>
+<a class="hover:text-primary transition-colors" href="#">Culture</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-2 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all">
+                Sign In
+            </button>
+</div>
+</nav>
+</header>
+<main class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-grow">
+<aside class="hidden lg:block lg:col-span-3">
+<div class="sticky top-32 space-y-8">
+<div class="p-6">
+<h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">format_list_bulleted</span>
+                    Contents
+                </h3>
+<nav class="space-y-1">
+<a class="toc-item active text-sm" href="#intro">Introduction</a>
+<a class="toc-item text-sm" href="#why-it-works">Why It Works</a>
+<a class="toc-item text-sm" href="#engineering">Engineering Depth</a>
+<a class="toc-item text-sm" href="#mascot-design">Mascot Theory</a>
+<a class="toc-item text-sm" href="#conclusion">Conclusion</a>
+</nav>
+</div>
+</div>
+</aside>
+<div class="lg:col-span-6 space-y-12">
+<header class="text-center md:text-left space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                UI Trends 2025
+            </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+                The Tactile Web: <br/><span class="text-primary">Returning to Clay.</span>
+</h1>
+<p class="text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-light max-w-2xl">
+                Exploring the shift from flat glassmorphism to rich, touchable claymation interfaces that users want to reach out and grab.
+            </p>
+<div class="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+<div class="w-12 h-12 rounded-full bg-cover bg-center shadow-md" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhMlzOaFKKbWCOkRrrN9A-7sD8ReO-m4VV0gX7icQJmpJXIxsjEIR-pYQqgLMbELtivDMqVLWCMs_ekAi8dt7ZNDHyzWsclr7hTNqyIxkEdlLVEEhtwrnR-Brb2mz2VDPwgaMemeX_9U0Tst3HXDAT629ozUYzKa_kmUnkfbACtFy13I8Q8vJf2kmiBxs9c3AQdN5ECBY2X8Tdxm_EuDE0m41VoLWQmskmle_1MsXmGW7GgillhZqpQPVEuLFzz7bi5jE6by-WJHhN');"></div>
+<div>
+<p class="font-bold text-sm text-slate-900 dark:text-white">Sarah Jenkins <span class="text-slate-400 font-normal mx-2">|</span> <span class="text-primary text-xs uppercase tracking-wide">UX Architect</span></p>
+<p class="text-xs text-slate-500 mt-0.5">Specializing in haptic interfaces and soft-body physics in web environments.</p>
+</div>
+</div>
+</header>
+<div class="rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Clay UI Hero" class="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6SsyzTqXccqXvBdZkujiHW1zzjfDsiZrQvmr9TGmQF9z2O9dE1-6y38p8bBUzkRfBZ3Zmi2c0kNCot5fQSjaQcvO-tpSzOwsamrvuTBP8vxl067-YQh807PRnZsg6uOCVyTFtVHy5Ob9bgVw5QOiazn4968Ie1IfDUuoqY4UHio1Ji7VqajRJ_tgnzDI4hupbH0JenQgEFkao4v2A5kxrosMo46_G2KRPV6MT72tFFf7XKIi6qHIlNwR9eKMsNWK5Vk1gwBw4eOTo"/>
+</div>
+<section class="py-4" id="why-it-works">
+<h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Why it works</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">touch_app</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Tangible</h3>
+<p class="text-xs text-slate-500">Users perceive depth and weight.</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Comforting</h3>
+<p class="text-xs text-slate-500">Soft shapes reduce cognitive load.</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-accent-amber/10 text-accent-amber flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">toys</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Playful</h3>
+<p class="text-xs text-slate-500">Encourages interaction and discovery.</p>
+</div>
+</div>
+</section>
+<article class="prose prose-lg prose-slate dark:prose-invert max-w-none">
+<p id="intro">
+                The digital pendulum is swinging back. After a decade of <a class="text-primary font-bold no-underline border-b-2 border-primary/20 hover:border-primary transition-colors" href="#">ultra-minimalism</a>, we are seeing a resurgence of texture. Not the skeuomorphism of 2010, but a new, refined "Clayomorphism".
+            </p>
+<blockquote class="not-italic border-l-0 p-8 my-8 bg-surface-highlight dark:bg-primary/5 rounded-2xl relative overflow-hidden shadow-soft">
+<span class="material-symbols-outlined absolute top-4 right-4 text-6xl text-primary/10 select-none">format_quote</span>
+<p class="text-xl font-bold text-slate-800 dark:text-slate-100 relative z-10">
+                    "It's about making the screen feel less like a screen and more like a playground. We want buttons you can squish."
+                </p>
+<footer class="mt-4 text-sm font-bold text-primary">— Lead Designer at ClayLabs</footer>
+</blockquote>
+<div class="flex flex-col items-center justify-center py-12" id="mascot-design">
+<div class="w-64 h-64 rounded-full clay-mascot bg-cover bg-center border-4 border-white dark:border-slate-700 relative z-10 transform hover:scale-105 transition-transform duration-500 cursor-pointer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuKwweNCi7tNTno5Y5JCixNWSnYSZGegjiJAeW-URRpoixH8No_NAVeeY7w5TC5dquaGhRxN4OY52jYdQZFudDEDofI3YSLn1B3QvhNaRKIe2ART9zIpm_WsFi6CfScnNWoTLOZStEiXNQohiHvkQz4axT1JL7NA8lvMt2CJeJuTTPplKuunIiCnE-qeW7ok5LDujOlmVuY-QpeWVzmwUHUNmiEi8tU5sffm-LVyXTwjbql5cgU3nADyriTwG4bGkLFc-1W4TKmpFb');">
+</div>
+<p class="text-xs text-slate-400 mt-6 font-medium uppercase tracking-widest">Fig 1. The "Soft-Body" Mascot</p>
+</div>
+<p>
+                When we introduced the mascot above, engagement metrics soared. The perfect circular geometry combined with imperfection in texture creates a "trust bridge" with the user.
+            </p>
+<div class="flex gap-4 items-start p-6 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-soft my-8">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0">help</span>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-1">Did you mean: Neomorphism?</h4>
+<p class="text-sm text-slate-500 leading-relaxed">
+                        While similar, <span class="text-primary font-bold">Clayomorphism</span> differs by using distinct 3D floating layers rather than extruded shapes from the background.
+                    </p>
+</div>
+</div>
+<section class="mt-12" id="engineering">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-8">Engineering Depth</h2>
+<div class="space-y-6">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-clay border border-slate-100 dark:border-slate-700 shadow-lg flex gap-6 items-start">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">layers</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">Z-Index Layering</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                We utilize a complex Z-index map to ensure that shadows cast correctly across multiple floating elements, simulating real studio lighting.
+                            </p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-clay border border-slate-100 dark:border-slate-700 shadow-lg flex gap-6 items-start">
+<div class="w-14 h-14 rounded-2xl bg-accent-purple/10 text-accent-purple flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">blur_circular</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">Backdrop Blur Physics</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Using CSS backdrop-filters dynamically calculated based on scroll position to give a "frosted clay" effect on modal overlays.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+</article>
+</div>
+<aside class="hidden xl:block lg:col-span-3 space-y-8 sticky top-32 h-fit">
+<div class="bg-slate-50 dark:bg-slate-800/30 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
+<h4 class="text-xs font-black uppercase tracking-widest text-primary mb-4">Related Reads</h4>
+<div class="space-y-6">
+<a class="block group" href="#">
+<div class="aspect-video rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8c0QW9CfiV8FXxI1AVIJiuIYoko_EJKNHvCXKbNo9OlrDWa7TWfqhIgvQmOy7feptJHTw2dnT1-SwZJs35VGuRcFVFTb3mrjK1OBSoP8duja7FNq5w96pfm0EA83xgYQpT5MmPegf6C5MCpPTEsHIbDCxSpLW-7-HtGL1nDEv4IG9vSQMHJuDODLn5aGNDpkfq9n325dFQ_nYS_SUfwm3fJvmn9BK1KGdXTbkcr4Byvwtz7cJyz7BwTDLR1nR6F3dTLgHArL5kDaZ"/>
+</div>
+<h5 class="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">Pastel Palettes in 2024</h5>
+</a>
+<a class="block group" href="#">
+<div class="aspect-video rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuKwweNCi7tNTno5Y5JCixNWSnYSZGegjiJAeW-URRpoixH8No_NAVeeY7w5TC5dquaGhRxN4OY52jYdQZFudDEDofI3YSLn1B3QvhNaRKIe2ART9zIpm_WsFi6CfScnNWoTLOZStEiXNQohiHvkQz4axT1JL7NA8lvMt2CJeJuTTPplKuunIiCnE-qeW7ok5LDujOlmVuY-QpeWVzmwUHUNmiEi8tU5sffm-LVyXTwjbql5cgU3nADyriTwG4bGkLFc-1W4TKmpFb"/>
+</div>
+<h5 class="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">3D Character Design</h5>
+</a>
+</div>
+</div>
+<div class="p-6 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl text-center">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Advertisement</p>
+<div class="bg-primary/5 rounded-xl p-4">
+<p class="text-sm font-bold text-primary">Get the Clay Kit Pro</p>
+<p class="text-xs text-slate-500 mt-1">50% off this week</p>
+</div>
+</div>
+</aside>
+</main>
+<footer class="mt-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="max-w-4xl mx-auto px-6 -mt-16 relative z-10">
+<div class="bg-slate-900 dark:bg-slate-800 text-white rounded-[2.5rem] p-10 md:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/30 blur-[80px] rounded-full pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="text-2xl md:text-3xl font-black mb-3">Master the Clay Look</h2>
+<p class="text-slate-400 text-sm md:text-base max-w-sm">Download our complete CSS &amp; Asset library to start building tactile interfaces today.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 relative z-10 shrink-0 w-full md:w-auto">
+<button class="bg-primary hover:bg-rose-700 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/25 transition-all transform hover:scale-105 text-sm md:text-base w-full sm:w-auto">
+                    Download
+                </button>
+<button class="bg-transparent border border-slate-600 text-slate-300 hover:text-white hover:border-white px-8 py-3 rounded-full font-bold transition-all text-sm md:text-base w-full sm:w-auto">
+                    View Specs
+                </button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center text-white text-xs font-black italic">T</div>
+<span class="font-black text-slate-900 dark:text-white">TACTILE</span>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed">
+                © 2024 Tactile Magazine.<br/>Designed for the physical web.
+            </p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">Product</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Features</a></li>
+<li><a class="hover:text-primary" href="#">Integrations</a></li>
+<li><a class="hover:text-primary" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">Resources</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Documentation</a></li>
+<li><a class="hover:text-primary" href="#">API Reference</a></li>
+<li><a class="hover:text-primary" href="#">Community</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">Company</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">About</a></li>
+<li><a class="hover:text-primary" href="#">Blog</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+</body></html>
