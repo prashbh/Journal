@@ -29,8 +29,7 @@
                 </article>
                 <img src="{{asset 'images/small_screen_hi_welcome.png'}}" width="300" class="muncher-waving" alt="Chief Muncher at your service">
                 <div class="face-container">
-                    <img src="{{asset 'images/TMnoeye.png'}}" class="character-face" alt="Chief Muncher at your service">
-                
+                    <img src="{{asset 'images/TMnoeye.png'}}" draggable="false"  class="character-face" alt="Chief Muncher at your service">
                     <div class="eye left">
                         <div class="pupil"></div>
                     </div>
@@ -85,7 +84,7 @@
                             height: 23px;
                             background: rgb(255, 253, 240); /* Matches the clay whites */
                             border-radius: 50%;
-                            top: 47%;    /* Position over the eyes in the image */
+                            top: 44%;    /* Position over the eyes in the image */
                             overflow: hidden;
                             z-index:1
                             pointer-events: none;
@@ -119,7 +118,7 @@
                             height: 0%; /* Start open */
                             background: #bd8e6d; /* Match the clay skin tone */
                             animation: blink 6s infinite;
-                            z-index:2;
+                            z-index:1;
                             pointer-events: none;
                         }
 
